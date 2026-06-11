@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteBase /
+
+# Allow sitemap
+RewriteRule ^sitemap\.xml$ - [L]
+
+# Allow assets folder
+RewriteRule ^assets/ - [L]
+
+# SPA fallback
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
